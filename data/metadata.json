@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "total_apps": 185479,
+  "last_updated": "2025-11-28",
+  "data_sources": [
+    "Steam Store API 2023",
+    "Various game databases 2023-2024"
+  ],
+  "notes": [
+    "Data collected from 2023-2024 sources",
+    "May include delisted/removed applications",
+    "List completeness is not guaranteed",
+    "Some entries may have empty names"
+  ],
+  "statistics": {
+    "total_entries": 185479,
+    "empty_names": 0,
+    "min_appid": 5,
+    "max_appid": 2730660
+  },
+  "formats_available": [
+    "games.json - Sorted by AppID",
+    "games_minified.json - Minified version",
+    "games_by_name.json - Sorted by name"
+  ]
+}

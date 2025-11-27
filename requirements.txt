@@ -1,0 +1,2 @@
+# Steam Games Database 
+# No external dependencies required 
