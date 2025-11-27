@@ -1,4 +1,4 @@
-Steam Games Database
+ Steam Games Database
 
 База данных приложений Steam в формате JSON. Содержит AppID и названия приложений из Steam Store.
 
@@ -6,7 +6,6 @@ Steam Games Database
 > - Данные собраны из баз 2023-2024 годов
 > - Возможно присутствие удаленных приложений/игр
 > - Не гарантируется полнота списка
-> - Некоторые записи могут содержать пустые названия
 
  📊 Статистика
 - Всего приложений: 185,479
@@ -16,17 +15,12 @@ Steam Games Database
 
  🗂️ Файлы
 
-# Основные файлы
 - `data/games.json` - Основная база (отсортирована по AppID)
-- `data/games_minified.json` - Минифицированная версия (для production)
+- `data/games_minified.json` - Минифицированная версия
 - `data/games_by_name.json` - Версия отсортированная по названиям
 - `data/metadata.json` - Метаданные и статистика базы
 
-# Исходные данные
-- `data/raw_games.json` - Исходные данные из первой базы
-- `data/raw_games_api.json` - Исходные данные из Steam API
-
- 🚀 Быстрый старт
+## 🚀 Быстрый старт
 
 ```python
 import json
@@ -35,17 +29,14 @@ import json
 with open('data/games.json', 'r', encoding='utf-8') as f:
     games = json.load(f)
 
-# Получение названия по AppID
-def get_game_name(appid):
-    return games.get(str(appid), "Game not found")
+# Поиск игры по AppID
+appid = "730"
+game_name = games.get(appid)
+print(f"{appid}: {game_name}")  # 730: Counter-Strike: Global Offensive
 
-print(get_game_name("730"))  # Counter-Strike: Global Offensive
-
-# Поиск по названию (регистронезависимый)
-def search_games(query):
-    query = query.lower()
+# Поиск по названию
+def find_game_by_name(name_part):
     return {appid: name for appid, name in games.items() 
-            if query in name.lower()}
+            if name_part.lower() in name.lower()}
 
-# Поиск всех игр Counter-Strike
-cs_games = search_games("counter-strike")
+cs_games = find_game_by_name("counter-strike")
